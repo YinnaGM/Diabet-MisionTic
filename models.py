@@ -36,17 +36,17 @@ class Profile(db.Model):
     id = db.Column(db.Integer, primary_key = True, autoincrement = True)
     sex = db.Column(db.String)
     age = db.Column(db.Integer)
-    heigh = db.Column(db.Float)
-    weigh = db.Column(db.Float)
+    height = db.Column(db.Float)
+    weight = db.Column(db.Float)
     insulin_type = db.Column(db.String)
     user_id = db.Column(db.ForeignKey("User.id"))
     
     # Constructor
-    def __init__(self, sex, age, heigh, weigh, insulin_type,user_id):
+    def __init__(self, sex, age, height, weight, insulin_type,user_id):
         self.sex = sex
         self.age = age
-        self.heigh = heigh
-        self.weigh = weigh
+        self.height = height
+        self.weight = weight
         self.insulin_type = insulin_type
         self.user_id = user_id
 
