@@ -28,7 +28,7 @@ def get_home():
 # Ruta del registro de usuario
 @app.route('/register')
 def register():
-    return render_template("register.html")
+    return render_template("register2.html")
 
 
 @app.route('/create_user', methods=['POST'])
@@ -41,7 +41,7 @@ def create_user():
     user = User(email,password)
     db.session.add(user)
     db.session.commit()
-    return "ok"
+    return render_template("profile.html")
 
 
 # Ruta para el perfil de usuario
