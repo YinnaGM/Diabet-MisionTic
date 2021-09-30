@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import query
 app = Flask(__name__)
 #app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:root@localhost:5432/diabetdb'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://uwtgivttkzjjan:2268412d4579839a4d53f294ad0f9e04db4fd93fe26cc33eaa789d19d6c498f2@ec2-52-0-93-3.compute-1.amazonaws.com:5432/d33l6grq25d29v'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://uwtgivttkzjjan:2268412d4579839a4d53f294ad0f9e04db4fd93fe26cc33eaa789d19d6c498f2@ec2-52-0-93-3.compute-1.amazonaws.com:5432/d33l6grq25d29v'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'some-secret-key'
 
