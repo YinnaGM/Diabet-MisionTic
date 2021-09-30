@@ -126,3 +126,6 @@ def create_profile():
     db.session.delete(admin)
     db.session.commit()
     return "Se eliminó el administrador"
+
+if __name__ == "__main__":
+    app.run()
