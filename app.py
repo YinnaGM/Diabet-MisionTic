@@ -35,7 +35,7 @@ def get_home():
 # Ruta del registro de usuario
 @app.route('/register')
 def register():
-    return render_template("register2.html")
+    return render_template("register.html")
 
 
 @app.route('/create_user', methods=['POST'])
