@@ -79,8 +79,8 @@ def create_profile():
 
 
 #Rutas de otras acciones
-@app.route('/admin', methods=['GET','POST'])
-def crud_admin():
+#@app.route('/admin', methods=['GET','POST'])
+#def crud_admin():
     if request.method == 'GET':
         # Hago algo
         print("Llego un GET")
@@ -104,8 +104,8 @@ def crud_admin():
 
         return 'Se registro el admin exitosamente'
 
-@app.route('/updateadmin',methods=['GET','POST'])
-def update_admin():
+#@app.route('/updateadmin',methods=['GET','POST'])
+#def update_admin():
     old_email = "admin@vis.com"
     new_email = "ad@vis.com"
     old_admin = Admin.query.filter_by(email = old_email).first()
@@ -113,14 +113,14 @@ def update_admin():
     db.session.commit()
     return "Actualización exitosa"
 
-@app.route('/getadmins')
-def get_admins():
+#@app.route('/getadmins')
+#def get_admins():
     admins = Admin.query.all()
     print(admins[0].email)
     return "Se trajo la lista de administradores registrados"
 
-@app.route('/deleteadmin')
-def delete_admin():
+#@app.route('/deleteadmin')
+#def delete_admin():
     admin_email = "ad@vis.com"
     admin = Admin.query.filter_by(email = admin_email).first()
     db.session.delete(admin)
