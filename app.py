@@ -3,9 +3,16 @@ from flask import Flask, request, render_template
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import query
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:root@localhost:5432/diabetdb'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:root@localhost:5432/diabetdb'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://uwtgivttkzjjan:2268412d4579839a4d53f294ad0f9e04db4fd93fe26cc33eaa789d19d6c498f2@ec2-52-0-93-3.compute-1.amazonaws.com:5432/d33l6grq25d29v'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'some-secret-key'
+
+if __name__ == "__main__": 
+    app.run()
+
+
+
 
 # Creacion de Database a traves de las librerías
 db = SQLAlchemy(app)
@@ -28,7 +35,7 @@ def get_home():
 # Ruta del registro de usuario
 @app.route('/register')
 def register():
-    return render_template("register2.html")
+    return render_template("register.html")
 
 
 @app.route('/create_user', methods=['POST'])
@@ -72,8 +79,8 @@ def create_profile():
 
 
 #Rutas de otras acciones
-@app.route('/admin', methods=['GET','POST'])
-def crud_admin():
+#@app.route('/admin', methods=['GET','POST'])
+#def crud_admin():
     if request.method == 'GET':
         # Hago algo
         print("Llego un GET")
@@ -97,8 +104,8 @@ def crud_admin():
 
         return 'Se registro el admin exitosamente'
 
-@app.route('/updateadmin',methods=['GET','POST'])
-def update_admin():
+#@app.route('/updateadmin',methods=['GET','POST'])
+#def update_admin():
     old_email = "admin@vis.com"
     new_email = "ad@vis.com"
     old_admin = Admin.query.filter_by(email = old_email).first()
@@ -106,14 +113,14 @@ def update_admin():
     db.session.commit()
     return "Actualización exitosa"
 
-@app.route('/getadmins')
-def get_admins():
+#@app.route('/getadmins')
+#def get_admins():
     admins = Admin.query.all()
     print(admins[0].email)
     return "Se trajo la lista de administradores registrados"
 
-@app.route('/deleteadmin')
-def delete_admin():
+#@app.route('/deleteadmin')
+#def delete_admin():
     admin_email = "ad@vis.com"
     admin = Admin.query.filter_by(email = admin_email).first()
     db.session.delete(admin)
