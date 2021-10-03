@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diabet</title>
-    <link rel="shortcut icon" href="{{url_for('static',filename='logoJS2019.ico')}}">
+    <link rel="shortcut icon" href="{{url_for('static',filename='Diabet.ico')}}">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcnd.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -70,10 +70,10 @@
           display: none;
         }
         .container {
-          position: relative;
+          position: right;
           z-index: 1;
           max-width: 300px;
-          margin: 0 auto;
+          
         }
         .container:before, .container:after {
           content: "";
@@ -102,6 +102,7 @@
         .container .info span .fa {
           color: #EF3B3A;
         }
+
         body {
           background: hsl(278, 78%, 25%); /* fallback for old browsers */
           background: -webkit-linear-gradient(right, hsl(270, 79%, 22%), #ae8bdb);
@@ -111,44 +112,50 @@
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;      
         }
-    </style>
+</style>
 
-   <!--Codigp javaScrip-->
+<!--Codigp javaScrip-->
 
-    <script type="text/javaScript">
-      $(document).ready(function()
-        {
-        $('.message a').click(function() {
-          $('form').animate({heigth:"toggle",opacity:"togle"},"slow");
-          $('#idMensajeError').hide();
-        });
+  <script type="text/javaScript">
+    $(document).ready(function()
+    {
+      $('.message a').click(function() {
+        $('form').animate({heigth:"toggle",opacity:"togle"},"slow");
+        $('#idMensajeError');
       });
+    });
+ </script>
+ </head>
 
-    </script>
-  </head>
-  <body>
+ <body>
     <div class="alert alert-success">
       <strong> Bienvenido </strong> Registrate - Ingresa al sistema.
+           Este es el inicio de la página, donde encontraras noticias y articulos relacionados a la diabetes tipo 1
     </div>
     <div class="login-page">
       <div class="form">
-        <form class="login-form" action="{{url_for('create_user')}}" method="post">
+        <form class="register-form" action="{{url_for('create_user')}}" method="post">
           <h5>Enter the user email and password</h5>
-          <div>
-            <input type="text" name="name" placeholder="Nombre">
-          </div>
-          <div>
-              <input type="email" name="email" placeholder="Email">
-          </div>
-          <div>
-              <input type="password" name="password" placeholder="Password">
-          </div>
+          <div><input type="text" name="name" placeholder="Nombre"></div>
+          <div><input type="email" name="email" placeholder="Email"></div>
+          <div><input type="password" name="password" placeholder="Password"></div>
           <div>
             <button type ="submit"> Registrar</button>
-            <p class="message"> Ya estas resgistrado? <a href='/login'> inicias sesion</a></p>
+            <p class="message"> Ya estas resgistrado? <a href='/login'> Iniciar sesion</a></p>
           </div>
-       </form>
+        </form>
+        <form class="login-form" action="{{url_for('check_user')}}" method="post">
+          <div><input type="email" name="email" required placeholder="Email"/> </div>
+          <div><input type="password"  name="password" required placeholder="Password"/></div>
+          <div>
+            <button type ="submit">Ingresar</button>
+            <p class="message">¿No estas registrado? <a href='/register'>Registrate</a></p>
+          </div>
+        </form>
+
+
       </div>
     </div>
-  </body>  
+  </body>
+    
 </html>

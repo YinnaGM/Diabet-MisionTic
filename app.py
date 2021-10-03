@@ -1,16 +1,16 @@
 from os import name
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect, url_for
+
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import query
 app = Flask(__name__)
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:root@localhost:5432/diabetdb'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://uwtgivttkzjjan:2268412d4579839a4d53f294ad0f9e04db4fd93fe26cc33eaa789d19d6c498f2@ec2-52-0-93-3.compute-1.amazonaws.com:5432/d33l6grq25d29v'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:root@localhost:5432/diabetdb'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://uwtgivttkzjjan:2268412d4579839a4d53f294ad0f9e04db4fd93fe26cc33eaa789d19d6c498f2@ec2-52-0-93-3.compute-1.amazonaws.com:5432/d33l6grq25d29v'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'some-secret-key'
 
-if __name__ == "__main__": 
-    app.run()
-
+#if __name__ == "__main__": 
+    #app.run()
 
 
 
@@ -40,15 +40,41 @@ def register():
 
 @app.route('/create_user', methods=['POST'])
 def create_user():
+
+        name = request.form["name"]
+        email = request.form["email"]
+        password = request.form["password"]
+        print(name)
+        print(email)
+        print(password)
+
+        user = User(name, email,password)
+        db.session.add(user)
+        db.session.commit()
+        return render_template("login.html")
+ 
+# Ruta para ingresar el usuario
+@app.route('/login')
+def login():
+    return render_template("login.html")
+
+@app.route('/check_user', methods=['POST'])
+def check_user():
     email = request.form["email"]
     password = request.form["password"]
-    print(email)
-    print(password)
+    users=User.query.filter(User.password==password,User.email==email)
 
-    user = User(email,password)
-    db.session.add(user)
-    db.session.commit()
-    return render_template("profile.html")
+    try:
+        if(users[0] is not None):
+            return render_template("index.html")
+
+    except:
+       return render_template("login.html")
+
+# Ruta iniciada la sesion
+@app.route('/index',methods=['POST'])
+def index():
+    return render_template("index.html")
 
 
 # Ruta para el perfil de usuario
@@ -127,5 +153,3 @@ def create_profile():
     db.session.commit()
     return "Se eliminó el administrador"
 
-if __name__ == "__main__":
-    app.run()

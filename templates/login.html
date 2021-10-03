@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diabet</title>
-    <link rel="shortcut icon" href="{{url_for('static',filename='logoJS2019.ico')}}">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcnd.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcnd.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <!--Reglas de estilo-->
 
@@ -70,10 +70,10 @@
           display: none;
         }
         .container {
-          position: relative;
+          float: right;
           z-index: 1;
-          max-width: 300px;
-          margin: 0 auto;
+          width: 300px;
+          height: 400;
         }
         .container:before, .container:after {
           content: "";
@@ -104,51 +104,45 @@
         }
         body {
           background: hsl(278, 78%, 25%); /* fallback for old browsers */
-          background: -webkit-linear-gradient(right, hsl(270, 79%, 22%), #ae8bdb);
-          background: -moz-linear-gradient(right, hsl(270, 84%, 20%), #a887d4);
-          background: -o-linear-gradient(right, hsl(270, 87%, 18%), #f3e9ff);
-          background: linear-gradient(to left, hsl(270, 79%, 29%), #cb8bff);
+          background: -webkit-linear-gradient(right, hsl(270, 12%, 97%), #2b055c);
+          background: -moz-linear-gradient(right, hsl(270, 12%, 97%), #2b055c);
+          background: -o-linear-gradient(right, hsl(270, 12%, 97%), #2b055c);
+          background: linear-gradient(to left, hsl(270, 12%, 97%), #2b055c);
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;      
         }
     </style>
 
-   <!--Codigp javaScrip-->
+      <!--Codigp javaScrip-->
 
     <script type="text/javaScript">
       $(document).ready(function()
-        {
+      {
         $('.message a').click(function() {
           $('form').animate({heigth:"toggle",opacity:"togle"},"slow");
           $('#idMensajeError').hide();
         });
       });
-
+      
     </script>
-  </head>
-  <body>
+</head>
+ <body>
     <div class="alert alert-success">
       <strong> Bienvenido </strong> Registrate - Ingresa al sistema.
     </div>
     <div class="login-page">
       <div class="form">
-        <form class="login-form" action="{{url_for('create_user')}}" method="post">
-          <h5>Enter the user email and password</h5>
+        <form class="login-form" action="{{url_for('check_user')}}" method="post">
           <div>
-            <input type="text" name="name" placeholder="Nombre">
+          <input type="email" name="email" required placeholder="Email"/>
           </div>
           <div>
-              <input type="email" name="email" placeholder="Email">
+          <input type="password"  name="password" required placeholder="password"/>
           </div>
-          <div>
-              <input type="password" name="password" placeholder="Password">
-          </div>
-          <div>
-            <button type ="submit"> Registrar</button>
-            <p class="message"> Ya estas resgistrado? <a href='/login'> inicias sesion</a></p>
-          </div>
-       </form>
+          <button type ="submit">Ingresar</button>
+          <p class="message">¿No estas registrado? <a href='register'>Registrate</a></p>
+        </form>
       </div>
     </div>
-  </body>  
+  </body>
 </html>
