@@ -86,7 +86,7 @@ def profile():
 def create_profile():
     sex = request.form["sex"]
     age = request.form["age"]
-    height = request.form["heigth"]
+    height = request.form["height"]
     weight = request.form["weight"]
     insulin_type = request.form["insulin_type"]
     user_id = request.form["user_id"]
@@ -100,7 +100,7 @@ def create_profile():
     profile = Profile(sex, age, height, weight, insulin_type, user_id)
     db.session.add(profile)
     db.session.commit()
-    return "Su perfil se creo con exito"
+    return render_template("index.html")
 
 
 
