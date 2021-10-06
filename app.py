@@ -1,5 +1,5 @@
 from os import name
-from flask import Flask, request, render_template, redirect, url_for
+from flask import Flask, request, render_template, redirect, url_for, session
 
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import query
@@ -58,6 +58,12 @@ def create_user():
 def login():
     return render_template("login.html")
 
+# ruta para el deslogueo del usuario
+@app.route('/logout')
+def logout():
+    session.pop('user_id', None)
+    return render_template("login.html")
+
 @app.route('/check_user', methods=['POST'])
 def check_user():
     email = request.form["email"]
@@ -66,6 +72,10 @@ def check_user():
 
     try:
         if(users[0] is not None):
+            #aca se almacena el id_usuario mientras la sesion este abierta
+            #si se desea usar en otros lados se escribe "session['user_id']"
+            session['user_id'] = users[0].id 
+            print(session['user_id'])
             return render_template("index.html")
 
     except:
@@ -89,7 +99,7 @@ def create_profile():
     height = request.form["height"]
     weight = request.form["weight"]
     insulin_type = request.form["insulin_type"]
-    user_id = request.form["user_id"]
+    user_id = session['user_id']
     print(sex)
     print(age)
     print(height)
