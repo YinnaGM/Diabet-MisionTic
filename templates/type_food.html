@@ -16,7 +16,7 @@
           background: -o-linear-gradient(right, hsl(270, 87%, 18%), #f3e9ff);
           background: linear-gradient(to left, hsl(270, 79%, 29%), #cb8bff);
           -webkit-font-smoothing: antialiased;
-          -moz-osx-font-smoothing: grayscale;   
+          -moz-osx-font-smoothing: grayscale;  
         }
         
         /* Style the header */
@@ -34,43 +34,41 @@
 
 <body>
     <header>
-    <h2>Crea tu perfil</h2>
+    <h2>Raciones de HC en medida de consumo habitual</h2>
     </header>
-    <form class="Profile" action="{{url_for('create_profile')}}" method='post'>
+    <form class="Profile" action="add_food" method='post'>
         <h5>Ingresa los siguientes datos</h5>
         <div>
-            
-            <select  type="text" name="sex"  placeholder="Sexo">
-                <option>Mujer</option>
-                <option>Hombre</option>
+            <input type="text" name="name" required  placeholder="Alimento">
+        </div>
+        <div>
+            <select  type="text" name="category"  placeholder="Categoria">
+                <option>Lacteos</option>
+                <option>Carnes</option>
+                <option>Leguminosas</option>
+                <option>Cereales</option>
+                <option>Frutas</option>
+                <option>Verduras</option>
+                <option>Snacks</option>
+                <option>Bebidas</option>
+                <option>Dulces</option>
+                <option>Semillas</option>
+                <option>Tuberculos</option>
+
             </select>
         </div>
         <div>
-            <input type="number" name="age" required  placeholder="Age">
+            <input type="number" name="quantity" required  placeholder="Cantidad (gramos)">
         </div>
         <div>
-            <input type="number" name="height" required placeholder="Altura (m)" step="Any">
+            <input type="number" name="carbohydrate" required placeholder="Carbohidrato" step="Any">
         </div>
-        <div>
-            <input type="number" name="weight" required placeholder="Peso (kg)" step="Any">
-        </div>
-        <div>
-            
-            <select type="text" name="insulin_type" placeholder="Tipo de insulina">
-                <option>Humulin R</option>
-                <option>Novolin R</option>
-                <option>Glulisina (Apidra)</option>
-                <option>Lispro (Humalog)</option>
-                <option>Aspart (Novolog)</option>
-                <option>Glargina (Lantus/Toujeo Solostar)</option>
-                <option>Detemir (Levemir)</option>
-                <option>Degludec (Tresiba)</option>
-                <option>NPH (Humulin N/Novolin N)</option>
-            </select>
-        </div>
+          
         <div>
             <button>Submit</button>
         </div>
-   
+        <div>
+            <button><a class="nav-link" href="/admin">atras</a></button>
+        </div>
 </body>
 </html>
