@@ -12,13 +12,14 @@
        <style type="text/css">
           body
           {
-          background:#f9fbf8; /* fallback for old browsers */
-          background: -webkit-linear-gradient(right, #30023b,#2b055c);
-          background: -moz-linear-gradient(right, #30023b,#2b055c);
-          background: -o-linear-gradient(right, #30023b,#2b055c);
-          background: linear-gradient(right, #30023b,#2b055c);
-          -webkit-front-smoothing: antialiased;
-          -moz-osx-front-smoothing: grayscale;
+          font-family: Arial, Helvetica, sans-serif;
+          background: hsl(278, 78%, 25%); /* fallback for old browsers */
+          background: -webkit-linear-gradient(right, hsl(270, 79%, 22%), #ae8bdb);
+          background: -moz-linear-gradient(right, hsl(270, 84%, 20%), #a887d4);
+          background: -o-linear-gradient(right, hsl(270, 87%, 18%), #f3e9ff);
+          background: linear-gradient(to left, hsl(270, 79%, 29%), #cb8bff);
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;  
           }
        </style>
      </head>
@@ -30,10 +31,10 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class ="nav-item activate">
-              <a class="nav-link"  action="{{url_for('crud_admin')}}" method="post" href="#">Home<span class="sr-only"> (current)</span></a>
+              <a class="nav-link"   method="post" href="#">Home<span class="sr-only"> (current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/croud_admin">Administrar</a>
+              <a class="nav-link" href='/admin/transactions'>Administrar</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/type_food">Registro Alimentos</a>
