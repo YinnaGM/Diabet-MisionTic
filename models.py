@@ -69,20 +69,21 @@ class Graph(db.Model):
         self.date = date
         self.profile_id = profile_id
 
-# Tabla Type_food
+# Tabla Type_food 
 class Type_food(db.Model):
     __tablename__ = 'Type_food'
 
     id = db.Column(db.Integer, primary_key = True, autoincrement = True)
     name = db.Column(db.String)
     category = db.Column(db.String)
-    admin_id = db.Column(db.ForeignKey("Admin.id"))
-
+    quantity= db.Column(db.Float)
+    carbohydrate = db.Column(db.Float)
     # Constructor
-    def __init__(self, name, category, admin_id):
+    def __init__(self, name, category,quantity,carbohydrate):
         self.name = name
         self.category = category
-        self.admin_id = admin_id
+        self.quantity = quantity
+        self.carbohydrate=carbohydrate
 
 # Tabla Admin
 class Admin(db.Model):

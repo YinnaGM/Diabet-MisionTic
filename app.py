@@ -114,22 +114,12 @@ def index():
 # ruta para visualizar el perfil del usuario
 @app.route('/view_profile')
 def view_profile():
-    consulta = db.session.query(Profile).all()
+    #consulta = db.session.query(Profile).all()
+    user_id = session['user_id']
+    consulta = Profile.query.filter(Profile.user_id==user_id)
     print(consulta)
     return render_template("view_profile.html", Profile = consulta)
 
-
-@app.route('/show_profile')    
-def show_profile():
-    consulta = Profile.query.all(Profile.user_id==session['user_id'])
-    datos_perfil=Profile.query.all()
-    
-    print(session['user_id'])
-    print(consulta.sex)
-    print(datos_perfil)
-
-    return "hola"
-   
 # Ruta para el calculo de insulina
 @app.route('/Insulin_calculation')
 def Insulin_calculation():
