@@ -114,7 +114,9 @@ def index():
 # ruta para visualizar el perfil del usuario
 @app.route('/view_profile')
 def view_profile():
-     return render_template("view_profile.html")
+    consulta = db.session.query(Profile).all()
+    print(consulta)
+    return render_template("view_profile.html", Profile = consulta)
 
 
 @app.route('/show_profile')    
@@ -144,12 +146,12 @@ def add_food():
     category = request.form["category"] 
     quantity = request.form["quantity"]
     carbohydrate= request.form["carbohydrate"]
-    admin_id = session['Admin.id']
+    admin_id = session['admin_id']
 
     type_food =Type_food( name,category,quantity,carbohydrate,admin_id )
     db.session.add(type_food)
     db.session.commit()  
-    session.pop('Admin.id', None)
+    session.pop('admin_id', None)
     return "Su registro se creo con exito"
 
 #Rutas de ingreso administrador
@@ -195,8 +197,11 @@ def get_admins():
 
 @app.route('/deleteadmin')
 def delete_admin():
-    admin_email = "ad@vis.com"
+    admin_email = "correo_Admin@gmail.com"
     admin = Admin.query.filter_by(email = admin_email).first()
     db.session.delete(admin)
     db.session.commit()
     return "Se eliminó el administrador"
+
+if __name__ == "__main__":
+    app.run(debug=True)

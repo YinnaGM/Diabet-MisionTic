@@ -27,6 +27,49 @@
           font-size: 35px;
           color: white;
         }
+        .form{
+          position: relative;
+          z-index: 0;
+          background: #FFFFFF;
+          max-width: 360px;
+          margin: 0 auto 20px;
+          padding: 50px;
+          text-align: center;
+          box-shadow: 0 0 200px 50 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+        }
+        .form input, select{
+          font-family: "Roboto", sans-serif;
+          outline: 0;
+          background: #f2f2f2;
+          width: 100%;
+          border: 10;
+          margin: 0 0 15px;
+          padding: 10px;
+          box-sizing: border-BOX;
+          font-size: 14px;  
+        }
+        .form button, a{
+          font-family: "Roboto", sans-serif;
+          text-transform: uppercase;
+          outline: 0;
+          background: #7e359b;
+          width: 100%;
+          border: 0;
+          padding: 15px;
+          color: #FFFFFF;
+          font-size: 14px;
+          -webkit-transition: all 0.3 ease;
+          transition: all 0.3 ease;
+          cursor: pointer;
+        }
+        .form button:hover,.form button:active,.form button:focus{
+          background: #aa3596;
+        }
+        .form .message {
+          margin: 25px 0 0;
+          color: #b3b3b3;
+          font-size: 15px;
+        }
     </style>
 
 
@@ -36,6 +79,8 @@
     <header>
     <h2>Raciones de HC en medida de consumo habitual</h2>
     </header>
+    <div class="login-page">
+        <div class="form">
     <form class="Profile" action="add_food" method='post'>
         <h5>Ingresa los siguientes datos</h5>
         <div>
@@ -65,10 +110,12 @@
         </div>
           
         <div>
-            <button>Submit</button>
+            <button>Registrar comida</button>
         </div>
         <div>
-            <button><a class="nav-link" href="/admin">atras</a></button>
+            <button href="/admin">atras</button>
         </div>
+    </div>
+</div>
 </body>
 </html>

@@ -6,7 +6,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diabet</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-</head>
+    <style>
+      body {
+          font-family: Arial, Helvetica, sans-serif;
+          background: hsl(278, 78%, 25%); /* fallback for old browsers */
+          background: -webkit-linear-gradient(right, hsl(270, 79%, 22%), #ae8bdb);
+          background: -moz-linear-gradient(right, hsl(270, 84%, 20%), #a887d4);
+          background: -o-linear-gradient(right, hsl(270, 87%, 18%), #f3e9ff);
+          background: linear-gradient(to left, hsl(270, 79%, 29%), #cb8bff);
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;  
+        }
+        
+        /* Style the header */
+        header {
+          background-color: rgb(108, 26, 119);
+          padding: 10px;
+          text-align: center;
+          font-size: 35px;
+          color: white;
+        }
+        button {
+          font-family: "Roboto", sans-serif;
+          text-transform: uppercase;
+          outline: 0;
+          background: #7e359b;
+          border: 0;
+          padding: 15px;
+          color: #FFFFFF;
+          font-size: 14px;
+          -webkit-transition: all 0.3 ease;
+          transition: all 0.3 ease;
+          cursor: pointer;
+          width: 200px;
+        }
+        button:hover, button:active, button:focus {
+          background: #aa3596;
+        }
+        h5 {
+            text-align: center;
+        }
+        .bot {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+  </head>
 <body> 
     <form class="Profile" action="{{url_for('Insulin_calculation')}}" method='post'>
         <nav class= "navbar navbar-expand-lg navbar-light bg-light">
@@ -31,8 +76,7 @@
             </div>
 
             <!--Salida de la aplicación-->
-            <span class="btn btn-primary">Cerrar Sesion</span>
-            <a href="/logout" class= "btn btn-danger float-right" role="button" aria-pressed="true">x</a>
+            <a href="/logout" class= "btn btn-danger float-right" role="button" aria-pressed="true">Cerrar Sesión</a>
        </nav>
        <h5>Ingresa los siguientes datos</h5>
        <div>
@@ -41,8 +85,8 @@
                <option>garbanzos</option>
            </select>
        </div> 
-       <div>
-           <button>Submit</button>
+       <div class = "bot">
+           <button>Calcular insulina</button>
        </div>
     </form>
 
