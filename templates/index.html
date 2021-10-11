@@ -10,42 +10,82 @@
 
         <!--Reglas de estilo-->
        <style type="text/css">
-          body
+        body
           {
-          background:#f9fbf8; /* fallback for old browsers */
-          background: -webkit-linear-gradient(right, #30023b,#2b055c);
-          background: -moz-linear-gradient(right, #30023b,#2b055c);
-          background: -o-linear-gradient(right, #30023b,#2b055c);
-          background: linear-gradient(right, #30023b,#2b055c);
-          -webkit-front-smoothing: antialiased;
-          -moz-osx-front-smoothing: grayscale;
-          }
+          margin: 0;
+          padding: 0;
+         
+        }
+        .derecha{
+          background-image: url(https://st3.depositphotos.com/1177973/12518/i/950/depositphotos_125182968-stock-photo-male-hand-holding-glucometer-with.jpg);
+          width:50%;
+          height: 100vh;
+        } 
+        .izquierda{
+          background:rgb(107, 95, 175);
+          background-size: cover;
+          background-position: center;
+          width:50%;
+          height: 100vh;
+        }
+        #pantalla-dividida {
+          display: flex ;
+        }
        </style>
      </head>
  <body>
     <nav class= "navbar navbar-expand-lg navbar-light bg-light">
-        <a class= "navbar-brand " href="#">
-        <img src="static/Diabet.ico"width="150" heigth="80" class="d-inline-block-align-top" alt="">
-        </a>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class ="nav-item activate">
-              <a class="nav-link"  action="{{url_for('index')}}" method="post" href="/index">Home<span class="sr-only"> (current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="view_profile">Profile</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Insulin_calculation">Calculo de la insulina</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Ayuda</a>    
-            </li>
-          </ul>
-        </div>
-      
+      <a class= "navbar-brand " href="#">
+      <img src="static/Diabet.ico"width="150" heigth="80" class="d-inline-block-align-top" alt="">
+      </a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class ="nav-item activate">
+            <a class="nav-link"  action="{{url_for('index')}}" method="post" href="/index">Home<span class="sr-only"> (current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="view_profile">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Insulin_calculation">Calculo de la insulina</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Ayuda</a>    
+          </li>
+        </ul>
+      </div>
         <!--Salida de la aplicación-->
-        <a href="/logout" class= "btn btn-danger float-right" role="button" aria-pressed="true">Cerrar Sesión</a>
-   </nav>
+        <span class="btn btn-primary">Cerrar Sesion</span>
+        <a href="/logout" class= "btn btn-danger float-right" role="button" aria-pressed="true">x</a>
+    </nav>
+    <section id="pantalla-dividida">
+      <div class="izquierda">
+        <h1>Diabetes Tipo I</h1> 
+        <p> <h3>¿QUÉ ES LA DIABETES?</h3>
+          La diabetes es una alteración del metabolismo, caracterizada por el aumento de los niveles de glucosa en la sangre
+          (hiperglucemia), causada por un defecto (completo o parcial) de la secreción o acción de una hormona: la insulina.
+          Ésta se produce en unas formaciones especiales que se encuentran en el páncreas: los islotes de Langerhans.
+          La glucosa (popularmente conocida como azúcar en la sangre) sobrepasa muy rara vez los 100 miligramos por dl. en
+          ayuno, incluso cuando se han tomado alimentos muy ricos en azúcares o grasas. La glucosa es el alimento principal
+          de las células de nuestro cuerpo.
+          La estabilidad de la glucemia (o nivel de la glucosa) depende de un mecanismo regulador extraordinariamente fino
+          y sensible. Cuando una persona no diabética ingiere alimentos, los azúcares que estos contienen se absorben desde
+          el intestino y pasan a la sangre, tendiendo a elevar los niveles de glucosa en ésta. La elevación es inmediatamente
+          detectada por las células del páncreas, productoras de insulina, que responden con una secreción rápida de esta hormona.
+          La insulina, a su vez, actúa como una llave que abre las puertas de las células en los músculos, el tejido graso y el
+          hígado, permitiendo la entrada de glucosa para su metabolismo y producción de energía; lo que permite mantener
+          las funciones de los órganos; disminuyendo, por tanto, su nivel en la sangre. Todo este mecanismo es muy rápido, no
+          dando tiempo a que la glucosa se eleve.
+          En la persona con diabetes, la producción de la insulina está tan disminuida que altera todo el mecanismo regulador:
+          las elevaciones de la glucosa sanguínea no son seguidas por un aumento suficiente de insulina, la glucosa no puede
+          penetrar en las células y su cantidad continua elevándose.
+        </p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/Cbzx4QMk_eY" title="YouTube video player" frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+        </iframe>
+      </div>
+      <div class="derecha">
+    </section>     
+
  </body>
 </html>
